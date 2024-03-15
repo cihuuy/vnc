@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 
 # Set default locale
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen --yes en_US.UTF-8
+    locale-gen  en_US.UTF-8 --yes
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
