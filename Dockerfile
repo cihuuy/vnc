@@ -1,5 +1,8 @@
 FROM ubuntu:latest
 
+# Set environment variable to avoid keyboard selection prompt
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     locales \
@@ -12,13 +15,13 @@ RUN apt-get update && apt-get install -y \
 
 # Set default locale
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen  en_US.UTF-8 --yes
+    locale-gen --yes en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 # Install VNC server and set password
 RUN mkdir ~/.vnc
-RUN echo "147" | vncpasswd -f > ~/.vnc/passwd
+RUN echo "179" | vncpasswd -f > ~/.vnc/passwd
 RUN chmod 0600 ~/.vnc/passwd
 
 # Expose VNC port
